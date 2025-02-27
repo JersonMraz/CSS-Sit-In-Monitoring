@@ -1,0 +1,99 @@
+@import url("/CustomFont.scss");
+
+.swal2-popup {
+    font-family: 'Poppins-Regular';
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 97vh;
+    
+    .container {
+        margin-top: -75px;
+        width: 550px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-bottom: 1px solid #ccc;
+            img {
+                height: 100px;
+                width: 100px;
+            }
+            h4 {
+                margin-top: 5px;
+                margin-bottom: 5px;
+                font-family: 'Poppins-Regular';
+                font-size: 18px;
+            }
+        }
+        form {
+            margin-top: 25px;
+            width: 480px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            input {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 20px;
+                font-size: 16px;
+                display: block;
+                border: none;
+                background-color: rgba(245, 232, 182, .40);
+                color: #282823;
+                outline: none;
+                border-bottom: 2px solid #F5E8B6;
+                box-sizing: border-box;
+                font-family: 'Poppins-Regular';
+            }
+
+            button {
+                border: none;
+                width: 100%;
+                padding: 8px 16px;
+                border-radius: 4px;
+                vertical-align: middle;
+                cursor: pointer;
+                display: inline-block;
+                background-color: #F5E8B6;
+                color: #282823;
+                margin-top: 2px;
+                margin-bottom: 3%;
+                text-transform: uppercase;
+                font-family: 'Poppins-SemiBold';
+                font-size: 18px;
+
+                &:hover {
+                    background-color: rgba(245, 232, 182, .50);
+                }
+            }
+            p {
+                font-family: 'Poppins-Regular';
+                font-size: 0.9em;
+                width: 100%;
+                margin-top: 5px;
+                text-align: start;
+
+                a {
+                    color: #2196F3;
+                    cursor: pointer;
+                    text-decoration-line: underline;
+                }
+            }
+        }
+    }
+}

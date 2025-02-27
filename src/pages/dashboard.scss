@@ -1,0 +1,178 @@
+@import url("/CustomFont.scss");
+
+.dashboardPanel {
+    margin-left: 375px;
+    margin-top: -50%;
+    height: 89vh;
+    width: 1543px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        margin-left: 2%;
+        position: absolute;
+        color: #282823;
+    }
+
+    .menuside {
+        width: 400px;
+        margin-top: 5%;
+        margin-left: 3%;
+        padding: 0;
+        .menu {
+            background-color: #fff;
+            height: 140px;
+            width: 400px;
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    width: 400px;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: rgba(245, 232, 182, .50);
+                    }
+                    a {
+                        display: block;
+                        font-family: 'Poppins-Medium';
+                        color: #282823;
+                        text-decoration: none;
+                        font-size: 17px;
+                        padding: 20px 20px;
+                        display: flex;
+                        align-items: center;
+                        i {
+                            padding-right: 15px;
+                            padding-left: 20px;
+                            font-size: 30px;
+                        }
+                        &:hover {
+                            color: #E9BE5F;
+                            border-right: 6px solid #E9BE5F;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+        .announcements {
+            background-color: #fff;
+            margin-top: 80px;
+            width: 400px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p {
+                font-family: 'Poppins-Medium';
+                font-size: 20px;
+                display: flex;
+                justify-content: center;
+                i {
+                    padding-right: 10px;
+                    font-size: 30px;
+                }
+            }
+    
+            .container {
+                width: 400px;
+                border-top: 3px outset #282823;
+                overflow-y: scroll;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                
+                .context {
+                    margin: auto;
+                    width: 350px;
+                    height: 400px;
+                    text-align: justify;
+                    border-bottom: 3px outset #282823;
+                    h6 {
+                        font-family: 'Poppins-Regular';
+                        text-align: center;
+                        font-size: 16px;
+                        color: #282823;
+                        margin: 10px 0px -10px 0px;
+                    }
+                    p {
+                        text-indent: 50px;
+                        font-size: 16px;
+                        font-family: 'Poppins-Light';
+                        color: #282823;
+                    }
+                }
+            }
+        }
+    }
+
+    .RulesandRegulation {
+        margin-top: 5%;
+        width: 990px;
+        height: 815px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        .header {
+            height: 150px;
+            width: 990px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background-color: rgba(245, 232, 182, .50);
+            h5 {
+                font-family: 'Poppins-SemiBold';
+                color: #282823;
+                font-size: 25px;
+                margin-top: 10px;
+            }
+            h6 {
+                font-family: 'Poppins-Medium';
+                text-transform: uppercase;
+                color: #282823;
+                font-size: 18px;
+                margin-top: -25px;
+            }
+            p {
+                font-family: 'Poppins-Regular';
+                text-transform: uppercase;
+                color: #282823;
+                font-size: 15px;
+                margin-top: -25px;
+            }
+        }
+
+        .labrr {
+            overflow-y: scroll;
+            margin-left: 3%;
+            width: 960px;
+            height: 665px;
+            h6 {
+                font-family: 'Poppins-Medium';
+                font-size: 17px;
+                margin-top: 1%;
+                margin-bottom: 1%;
+            }
+            hr {
+                margin-right: 2%;
+            }
+            p {
+                font-family: 'Poppins-Regular';
+                text-align: justify;
+                margin-right: 2%;
+            }
+            ul {
+
+                li {
+                    font-family: 'Poppins-Regular';
+                }
+            }
+        }
+    }
+}
