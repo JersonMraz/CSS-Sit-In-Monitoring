@@ -1,0 +1,189 @@
+@import url("/CustomFont.scss");
+
+.AnnouncementContainer {
+    margin-left: 375px;
+    margin-top: -50%;
+    height: 89vh;
+    width: 1543px;
+    gap: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    }
+    .announcementContainer {
+        margin-top: 5%;
+        width: 1440px;
+        height: 840px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .CreateAnnouncement {
+            height: 250px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+
+            h5 {
+                font-family: 'Poppins-Medium';
+                font-size: 21px;
+            }
+
+            button {
+                width: 15%;
+                height: 45px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                background-color: #E9BE5F;
+                font-family: 'Poppins-Regular';
+                color: #fff;
+
+                &:hover {
+                    transition: 0.5s;
+                    background-color: rgba(182, 151, 83, 0.932);
+                }
+            }
+
+            input {
+                font-family: 'Poppins-Regular';
+                font-size: 17px;
+                padding: 10px 10px;
+                margin-bottom: 10px;
+                border: none;
+                background-color: rgba(228, 228, 228, 0.4);
+                border-left: 8px solid rgba(233, 190, 95, 0.5);
+                outline-color: transparent;
+            }
+
+            textarea {
+                font-family: 'Poppins-Regular';
+                font-size: 17px;
+                height: 120px;
+                margin-bottom: 20px;
+                padding: 2px 10px;
+                border: none;
+                resize: none;
+                background-color: rgba(228, 228, 228, 0.4);
+                border-left: 8px solid rgba(233, 190, 95, 0.5);
+                outline-color: transparent;
+            }
+
+            .action-btn-announcement {
+                .edit-butt {
+                    margin-right: 50px;
+
+                    &.disabled {
+                        background-color: #d3d3d3;
+                        cursor: not-allowed;
+                    }
+            
+                    &.active {
+                        background-color: #007bff;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+                
+            }
+        }
+        .PostedAnnouncement {
+            height: 575px;
+            width: 90%;
+
+            h5 {
+                font-family: 'Poppins-Medium';
+                font-size: 21px;
+                border-bottom: 2px solid black;
+            }
+            
+            .container {
+                width: 100%;
+                height: 500px;
+                margin-top: -20px;
+                overflow-y: scroll;
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                
+                p {
+                    text-indent: 50px;
+                    font-size: 16px;
+                    font-family: 'Poppins-Light';
+                    color: #282823;
+                }
+
+                .context {
+                    width: 98%;
+                    height: 150px;
+                    text-align: justify;
+                    border-bottom: 3px outset #282823;
+                    .announce {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        h6 {
+                            font-family: 'Poppins-Regular';
+                            font-size: 16px;
+                            color: #282823;
+                            margin: 10px 0px -10px 0px;
+                        }
+
+                        .action-btn {
+                            margin-top: 10px;
+                            width: 230px;
+                            display: flex;
+                            justify-content: space-between;
+
+                            button {
+                                border-radius: 50px;
+                                width: 100px;
+                                height: 40px;
+                            }
+                            .edit-btn {
+                                border: 1px solid #949494;
+                                background-color: transparent;
+                                color: #949494;
+                                cursor: pointer;
+                                transition: 0.3s ease-in-out;
+                                &:hover {
+                                    background-color: #ccc;
+                                }
+                            }
+                            .edit-btn.editing-mode {
+                                border: 1px solid #e74c3c;
+                                color: #e74c3c;
+                                cursor: pointer;
+                                transition: 0.3s ease-in-out;
+                                &:hover {
+                                    background-color: transparent;
+                                }
+                            }
+                            .del-btn {
+                                border: none;
+                                background-color: #e74c3c;
+                                color: #fff;
+                                cursor: pointer;
+                                transition: 0.3s ease-in-out;
+                                &:hover {
+                                    background-color: #c0392b;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

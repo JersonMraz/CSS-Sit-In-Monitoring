@@ -1,0 +1,69 @@
+@import url("/CustomFont.scss");
+
+.historybody {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    h1 {    
+        font-family: 'Poppins-SemiBold';
+        margin-left: 2.5%;
+        position: absolute;
+        color: #282823;
+        text-align: start;
+    }
+    .historycont {
+        width: 1390px;
+        height: 80vh;
+        margin-top: 5%;
+        margin-left: 3%;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;  
+            font-family: 'Poppins-Regular';   
+            thead {
+                position: sticky;
+                background-color: #F5E8B6;
+                color: black;
+    
+                tr th {
+                    text-align: left;
+                    padding: 10px 20px;
+                }
+            }
+            tbody tr {
+                border-bottom: 1px solid #ddd;
+            }
+    
+            tbody tr:nth-child(even) {
+                background-color: #f1f1f1;
+            }
+    
+            tbody td {
+                padding: 10px 20px;
+                text-align: left;
+
+                .feedBack {
+                    font-family: 'Poppins-Regular';
+                    font-size: 14px;
+                    border: none;
+                    padding: 10px 12px;
+                    border-radius: 3px;
+                    color: #fff;
+                    cursor: pointer;
+                    background-color: rgb(76, 175, 80);
+
+                    &:hover {
+                        transition: 0.5 ease-in-out;
+                        background-color: rgba(76, 175, 80, 0.91);
+                    }
+                }
+            }
+        }
+    }
+}

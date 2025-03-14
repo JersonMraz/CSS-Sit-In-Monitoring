@@ -1,0 +1,413 @@
+@import url("/CustomFont.scss");
+
+.StudProfBody {
+    margin-left: 375px;
+    margin-top: -50%;
+    height: 89vh;
+    width: 1543px;
+    gap: 50px;
+    display: flex;
+    flex-direction: row;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        margin-left: 2.5%;
+        position: absolute;
+        color: #282823;
+    }
+    .menu {
+        background-color: #fff;
+        border-radius: 3px;
+        margin-top: 5%;
+        margin-left: 3%;
+        height: 130px;
+        width: 400px;
+        ul {
+            margin: 0;
+            padding: 0;
+            li {
+                list-style-type: none;
+                width: 400px;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(245, 232, 182, .50);
+                }
+                a {
+                    display: block;
+                    font-family: 'Poppins-Medium';
+                    color: #282823;
+                    text-decoration: none;
+                    font-size: 17px;
+                    padding: 20px 20px;
+                    display: flex;
+                    align-items: center;
+                    i {
+                        padding-right: 15px;
+                        padding-left: 20px;
+                        font-size: 25px;
+                    }
+                    &:hover {
+                        color: #E9BE5F;
+                        border-right: 6px solid #E9BE5F;
+                    }
+                }
+                .isActive {
+                    color: #E9BE5F;
+                    border-right: 6px solid #E9BE5F;
+                }
+            }
+            .isActive {
+                background-color: rgba(245, 232, 182, .50);;
+            }
+        }
+    }
+    .StudProfContainer {
+        border-radius: 3px;
+        margin-top: 5%;
+        width: 990px;
+        height: 815px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-family: 'Poppins-Medium';
+            font-size: 40px;
+            text-align: left;
+            align-self: flex-start;
+        }
+
+        .profilePicture {
+            width: 90%;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 115px;
+            padding-left: 35px;
+            gap: 35px;
+            img {
+                object-fit: cover;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                width: 175px;
+                height: 175px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .upload-img {
+                padding: 13px 25px;
+                border-radius: 6px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                font-family: 'Poppins-Regular';
+                font-size: 1em;
+            }
+            .delete-img {
+                padding: 13px 25px;
+                border-radius: 6px;
+                cursor: pointer;
+                background-color: lightgray;
+                border: none;
+                font-family: 'Poppins-Regular';
+                font-size: 1em;
+            }
+        }
+        .credentials {
+            width: 90%;
+            height: 400px;
+            margin-top: 3%;
+            padding-left: 35px;
+            display: flex;
+            flex-direction: column;
+
+            .ikaduha {
+                margin: 25px 0px;
+            }
+            
+            .name, .ikaduha, .ikatulo {
+                display: flex;
+                flex-direction: row;
+                gap: 100px;
+                .firstname, .midname, .lastname {
+                    display: flex;
+                    flex-direction: column;
+    
+                    label {
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                    }
+    
+                    input {
+                        width: 110%;
+                        height: 50px;
+                        padding: 10px;
+                        font-size: 15px;
+                        border-radius: 5px;
+                        background-color: rgb(245, 244, 244);
+                        border: none;
+                        border-bottom: 1px solid #E9BE5F;
+                        box-sizing: border-box;
+                        display: block;
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                        outline-color: #E9BE5F;
+                    }
+                }
+                .username, .email, .yearlvl {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                    }
+
+                    input {
+                        width: 110%;
+                        height: 50px;
+                        padding: 10px;
+                        font-size: 15px;
+                        border-radius: 5px;
+                        background-color: rgb(245, 244, 244);
+                        border: none;
+                        border-bottom: 1px solid #E9BE5F;
+                        box-sizing: border-box;
+                        display: block;
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                        outline-color: #E9BE5F;
+                    }
+                    select {
+                        height: 50px;
+                        padding: 10px;
+                        font-size: 15px;
+                        border-radius: 5px;
+                        background-color: rgb(245, 244, 244);
+                        border: none;
+                        border-bottom: 1px solid #E9BE5F;
+                        box-sizing: border-box;
+                        display: block;
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                        outline-color: #E9BE5F;
+                    }
+                }
+                .course {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                    }
+
+                    select {
+                        height: 50px;
+                        padding: 10px;
+                        font-size: 15px;
+                        border-radius: 5px;
+                        background-color: rgb(245, 244, 244);
+                        border: none;
+                        border-bottom: 1px solid #E9BE5F;
+                        box-sizing: border-box;
+                        display: block;
+                        font-family: 'Poppins-Regular';
+                        color: #282823;
+                        outline-color: #E9BE5F;
+                    }
+                }
+            }
+            .SaveChanges {
+                display: block;
+                font-family: 'Poppins-Medium';
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                border-radius: 8px;
+                font-size: 16px;
+                margin-top: 35px;
+                padding: 15px 13px;
+                width: 25%;
+            }
+        }
+    }
+    .StudPassContainer {
+        border-radius: 3px;
+        margin-top: 5%;
+        width: 990px;
+        height: 815px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        h1 {
+            font-family: 'Poppins-Medium';
+            font-size: 40px;
+            text-align: left;
+            align-self: flex-start;
+        }
+        .PasswordContainer {
+            width: 100%;
+            margin-top: 20%;
+            gap: 55px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            .oldpassword {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                label {
+                    font-family: 'Poppins-Regular';
+                    color: #282823;
+                }
+                input {
+                    height: 50px;
+                    padding: 10px;
+                    font-size: 15px;
+                    border-radius: 5px;
+                    background-color: rgb(245, 244, 244);
+                    border: none;
+                    border-bottom: 1px solid #E9BE5F;
+                    box-sizing: border-box;
+                    display: block;
+                    font-family: 'Poppins-Regular';
+                    color: #282823;
+                    outline-color: #E9BE5F;
+                }
+                .fa-eye-slash {
+                    border-radius: 50%;
+                    color: #282823;
+                    cursor: pointer;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    font-size: 18px;
+                    margin-top: 35px;
+                    margin-right: 10px;
+                    align-self: self-end;
+                    width: 35px;
+                    height: 30px;
+                    &:hover {
+                        background-color: rgba(245, 232, 182, .50);
+                    }
+                }
+                .fa-eye {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    font-size: 18px;
+                    margin-top: 35px;
+                    margin-right: 10px;
+                    align-self: self-end;
+                    width: 30px;
+                    height: 30px;
+                    &:hover {
+                        background-color: rgba(245, 232, 182, .50);
+                    }
+                }
+            }
+            .newpassword {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+                label {
+                    font-family: 'Poppins-Regular';
+                    color: #282823;
+                }
+                input {
+                    width: 100%;
+                    height: 50px;
+                    padding: 10px;
+                    font-size: 15px;
+                    border-radius: 5px;
+                    background-color: rgb(245, 244, 244);
+                    border: none;
+                    border-bottom: 1px solid #E9BE5F;
+                    box-sizing: border-box;
+                    display: block;
+                    font-family: 'Poppins-Regular';
+                    color: #282823;
+                    outline-color: #E9BE5F;
+                }
+                .fa-eye-slash {
+                    border-radius: 50%;
+                    color: #282823;
+                    cursor: pointer;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    font-size: 18px;
+                    margin-top: 35px;
+                    margin-right: 10px;
+                    align-self: self-end;
+                    width: 35px;
+                    height: 30px;
+                    &:hover {
+                        background-color: rgba(245, 232, 182, .50);
+                    }
+                }
+                .fa-eye {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    font-size: 18px;
+                    margin-top: 35px;
+                    margin-right: 10px;
+                    align-self: self-end;
+                    width: 30px;
+                    height: 30px;
+                    &:hover {
+                        background-color: rgba(245, 232, 182, .50);
+                    }
+                }
+            }
+        }
+        .ChangeButtons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 55px;
+            width: 100%;
+            margin-top: 40px;
+            .SavePassword {
+                display: block;
+                font-family: 'Poppins-Medium';
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                border-radius: 8px;
+                font-size: 16px;
+                padding: 15px 13px;
+                width: 30%;
+            }
+            .ResetPassword {
+                cursor: pointer;
+                display: block;
+                font-family: 'Poppins-Medium';
+                background-color: #f44336;
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: 16px;
+                padding: 15px 13px;
+                width: 30%;
+            }
+        }
+    }
+}

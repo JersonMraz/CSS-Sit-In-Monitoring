@@ -1,0 +1,223 @@
+@import url("/CustomFont.scss");
+
+.UserProfile {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    h1 {    
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    }
+    .UserProfileContainer {
+        margin-top: 5%;
+        width: 1440px;
+        height: 840px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+
+        .ProfileHeader {
+            width: 100%;
+            height: 250px;
+            padding: 50px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+
+            .userinfo {
+                width: 600px;
+                gap: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 190px;
+                    height: 190px;
+                    border-radius: 50%;
+                }
+                
+                .user-details {
+                    width: 100%;
+                    height: 10vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 25px;
+                    h5 {
+                        font-family: 'Poppins-SemiBold';
+                        color: #282823;
+                        position: relative;
+                        height: 0px;
+                        font-size: 25px;
+                        margin-top: 10px;
+                        margin-bottom: 0px;
+                    }
+                    h6 {
+                        font-family: 'Poppins-Medium';
+                        color: rgb(95, 95, 95);
+                        position: relative;
+                        height: 0px;
+                        font-size: 18px;
+                        margin-bottom: 0px;
+                    }
+                    p {
+                        font-family: 'Poppins-Light';
+                        color: rgb(95, 95, 95);
+                        position: relative;
+                        height: 0px;
+                        font-size: 15px;
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+
+        .ProfileBody {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            padding: 20px 0px;
+
+            .DataContainer {
+                margin-left: 13%;
+                display: flex;
+                flex-direction: column;
+
+                .titleAndEdit {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    h3 {
+                        font-family: 'Poppins-Medium';
+                        color: #272727;
+                    }
+                    a {
+                        font-family: 'Poppins-Regular';
+                        font-size: 18px;
+                        border: 1px solid #949494;
+                        padding: 6px 15px;
+                        border-radius: 25px;
+                        color: #949494;
+                        cursor: pointer;
+                    }
+                }
+
+                
+
+                .firstRow {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 80px;
+    
+                    .midname {
+                        width: 130px;
+                    }
+                    .firstname, .midname, .lastname {
+                        display: flex;
+                        flex-direction: column;
+                        font-family: 'Poppins-Regular';
+    
+                        label {
+                            color: #646464;
+                            font-size: 17px;
+                        }
+    
+                        input {
+                            padding: 10px 10px;
+                            font-size: 16px;
+                            border-radius: 5px;
+                            cursor: default;
+                            background-color: transparent;
+                            border: none;
+                            border-bottom: 1px solid #E9BE5F;
+                            box-sizing: border-box;
+                            display: block;
+                            font-family: 'Poppins-Regular';
+                            color: #282823;
+                            outline-color: transparent;
+                        }
+                    }
+                }
+                .secondRow {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 80px;
+                    margin: 50px 0px;
+
+                    .email {
+                        width: 40%;
+                    }
+
+                    .idno, .email {
+                        display: flex;
+                        flex-direction: column;
+                        font-family: 'Poppins-Regular';
+                        label {
+                            color: #646464;
+                            font-size: 17px;
+                        }
+    
+                        input {
+                            padding: 10px 10px;
+                            font-size: 16px;
+                            border-radius: 5px;
+                            cursor: default;
+                            background-color: transparent;
+                            border: none;
+                            border-bottom: 1px solid #E9BE5F;
+                            box-sizing: border-box;
+                            display: block;
+                            font-family: 'Poppins-Regular';
+                            color: #282823;
+                            outline-color: transparent;
+                        }
+                    }
+                }
+                .thirdRow {
+                    display: flex;
+                    flex-direction: column;
+
+                    .course {
+                        width: 72%;
+                        display: flex;
+                        flex-direction: column;
+                        font-family: 'Poppins-Regular';
+                        label {
+                            color: #646464;
+                            font-size: 17px;
+                        }
+
+                        input {
+                            padding: 10px 10px;
+                            font-size: 16px;
+                            border-radius: 5px;
+                            cursor: default;
+                            background-color: transparent;
+                            border: none;
+                            border-bottom: 1px solid #E9BE5F;
+                            box-sizing: border-box;
+                            display: block;
+                            font-family: 'Poppins-Regular';
+                            color: #282823;
+                            outline-color: transparent;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

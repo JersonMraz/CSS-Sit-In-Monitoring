@@ -36,7 +36,8 @@ function Login() {
             })
             .then((data) => {
                 console.log("📌 Server Response:", data);
-
+                const role = data.user.role;
+                console.log("User role: ", role);
                 if (!data || !data.resultStatus) {
                     throw new Error("Invalid server response format");
                 }
@@ -44,15 +45,27 @@ function Login() {
                 const resultMessage = data.resultStatus;
 
                 if (resultMessage.includes("successfully")) {
-                    localStorage.setItem("user", JSON.stringify(data.user));
-                    Swal.fire({
-                        title: "Success",
-                        text: resultMessage,
-                        icon: "success",
-                        confirmButtonText: "OK",
-                    }).then(() => {
-                        navigate("/dashboard"); // Redirect to Dashboard
-                    });
+                    if(role === "Admin") {
+                        localStorage.setItem("user", JSON.stringify(data.user));
+                        Swal.fire({
+                            title: "Admin",
+                            text: "Logged in as Admin",
+                            icon: "success",
+                            confirmButtonText: "Ok"
+                        }).then(() => {
+                            navigate("/Admin-Dashboard"); //Redirect to Admin dashboard
+                        });
+                    } else {
+                        localStorage.setItem("user", JSON.stringify(data.user));
+                        Swal.fire({
+                            title: "Success",
+                            text: resultMessage,
+                            icon: "success",
+                            confirmButtonText: "OK",
+                        }).then(() => {
+                            navigate("/dashboard"); // Redirect to Dashboard
+                        });
+                    }
                 } else {
                     Swal.fire({
                         title: "Error",

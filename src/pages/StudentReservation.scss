@@ -1,0 +1,112 @@
+@import url("/CustomFont.scss");
+
+.ReservationBody {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    h1 {    
+        font-family: 'Poppins-SemiBold';
+        margin-left: 2.5%;
+        position: absolute;
+        color: #282823;
+    }
+    .ReservationContent {
+        width: 1440px;
+        height: 80vh;
+        margin-top: 5%;
+        margin-left: 3%;
+        border-radius: 3px;
+        padding-left: 50px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .idno {
+            margin-top: 5%;
+        }
+
+        .idno, .studname, .purpose, .timeIn, .date, .sessions, .room {
+            width: 800px;
+            font-family: 'Poppins-Regular';
+            font-size: 17px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            label {
+                font-size: 18px;
+                i {
+                    font-size: 25px;
+                    margin-right: 5px;
+                    color: #E9BE5F;
+                }
+            }
+
+            input[type=text], input[type=date], input[type=time] {
+                width: 60%;
+                padding: 10px 10px;
+                font-size: 15px;
+                border-radius: 5px;
+                background-color: rgb(245, 244, 244);
+                border: none;
+                border-bottom: 1px solid #E9BE5F;
+                box-sizing: border-box;
+                display: block;
+                font-family: 'Poppins-Regular';
+                color: #282823;
+                outline-color: #E9BE5F;
+            }
+            
+            select {
+                width: 60%;
+                padding: 10px 10px;
+                font-size: 15px;
+                border-radius: 5px;
+                background-color: rgb(245, 244, 244);
+                border: none;
+                border-bottom: 1px solid #E9BE5F;
+                box-sizing: border-box;
+                display: block;
+                font-family: 'Poppins-Regular';
+                color: #282823;
+                outline-color: #E9BE5F;
+            }
+        }
+        .btns {
+            margin-top: 3%;
+            width: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+
+            button {
+                width: 300px;
+                height: 50px;
+                font-family: 'Poppins-Medium';
+                font-size: 18px;
+                border: none;
+                border-radius: 4px;
+            }
+            .cancel-btn {
+                background-color: #e74c3c;
+                color: #fff;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #c0392b;
+                }
+            }
+            .reserve-btn {
+                background-color: #E9BE5F;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -11,7 +11,7 @@
 
     h1 {
         font-family: 'Poppins-SemiBold';
-        margin-left: 2%;
+        margin-left: 2.5%;
         position: absolute;
         color: #282823;
     }
@@ -23,7 +23,7 @@
         padding: 0;
         .menu {
             background-color: #fff;
-            height: 140px;
+            height: 130px;
             width: 400px;
             
             ul {
@@ -48,13 +48,20 @@
                         i {
                             padding-right: 15px;
                             padding-left: 20px;
-                            font-size: 30px;
+                            font-size: 25px;
                         }
                         &:hover {
                             color: #E9BE5F;
                             border-right: 6px solid #E9BE5F;
                         }
                     }
+                    .isActive {
+                        color: #E9BE5F;
+                        border-right: 6px solid #E9BE5F;
+                    }
+                }
+                .isActive {
+                    background-color: rgba(245, 232, 182, .50);;
                 }
             }
             
@@ -68,7 +75,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            p {
+            .announcement-title {
                 font-family: 'Poppins-Medium';
                 font-size: 20px;
                 display: flex;
@@ -90,19 +97,28 @@
                 .context {
                     margin: auto;
                     width: 350px;
-                    height: 400px;
-                    text-align: justify;
+                    height: auto;
                     border-bottom: 3px outset #282823;
+                    display: flex;
+                    justify-content: start;
+                    flex-direction: column;
                     h6 {
-                        font-family: 'Poppins-Regular';
-                        text-align: center;
+                        font-family: 'Poppins-Medium';
+                        text-align: start;
                         font-size: 16px;
                         color: #282823;
-                        margin: 10px 0px -10px 0px;
+                        margin: 5px 0px -10px 0px;
                     }
-                    p {
+                    .date_time {
+                        font-family: 'Poppins-Regular';
+                        font-size: 15px;
+                        margin: 15px 0px 5px 0px;
+                        padding: 0px;
+                    }
+                    .message {
                         text-indent: 50px;
                         font-size: 16px;
+                        text-align: justify;
                         font-family: 'Poppins-Light';
                         color: #282823;
                     }
@@ -137,7 +153,8 @@
                 text-transform: uppercase;
                 color: #282823;
                 font-size: 18px;
-                margin-top: -25px;
+                margin-top: -45px;
+                padding: 16px 0px;
             }
             p {
                 font-family: 'Poppins-Regular';

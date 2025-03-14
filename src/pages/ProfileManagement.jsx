@@ -1,10 +1,10 @@
-import "./StudentProfile.scss";
-import { useState, useEffect, act } from "react";
+import "./ProfileManagement.scss";
+import { useState, useEffect } from "react";
 import Sidebar from "../Sidebar.jsx";
 import Navbar from "../navbar.jsx";
 import Swal from "sweetalert2";
 
-function StudentProfile() {
+function ProfileManagement() {
     const [user, setUser] = useState(null);
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -323,4 +323,4 @@ function StudentProfile() {
     );
 }
 
-export default StudentProfile;
+export default ProfileManagement;

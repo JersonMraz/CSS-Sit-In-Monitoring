@@ -1,15 +1,46 @@
-.user-navbar {
+@import url("/CustomFont.scss");
+
+.navbar {
     position: absolute;
     top: 0;
     margin-left: 375px;
+    padding: 0;
     height: 8%;
     background-color: #fff;
     width: 1540px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: end;
+    .search {
+        height: 60px;
+        width: 300px;
+        margin-left: 45px;
+        display: flex;
+        align-items: center;
+        position: relative;
 
-    .user-nav-container {
+        i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: gray;
+            font-size: 16px;
+        }
+
+        input {
+            font-family: 'Poppins-Regular';
+            padding-left: 35px;
+            width: 250px;
+            height: 45px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline-color: #E9BE5F;
+        }
+    }
+    .container {
         width: 340px;
         padding: 0;
         display: flex;
