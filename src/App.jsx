@@ -12,6 +12,7 @@ import AdminAnnouncement from "./admin-pages/Announcement.jsx";
 import AdminProfile from "./admin-pages/AdminProfile.jsx";
 import CurrentSitIn from "./admin-pages/CurrentSitIn.jsx";
 import SitinRecords from "./admin-pages/SitinRecords.jsx";
+import FeedbackTable from "./admin-pages/FeedbackTable.jsx";
 
 function App() {
   return(
@@ -31,6 +32,7 @@ function App() {
         <Route path="/Admin-Profile" element={<AdminProfile />}/>
         <Route path="/Current-Sit-In" element={<CurrentSitIn />}/>
         <Route path="/Sitin-Records" element={<SitinRecords />}/>
+        <Route path="/View-Feedback" element={<FeedbackTable />}/>
       </Routes>
     </>
   );

@@ -14,7 +14,7 @@
         text-align: start;
     }
     .historycont {
-        width: 1390px;
+        width: 1440px;
         height: 80vh;
         margin-top: 5%;
         margin-left: 3%;
@@ -54,10 +54,6 @@
                     border: none;
                     padding: 10px 12px;
                     border-radius: 3px;
-                    color: #fff;
-                    cursor: pointer;
-                    background-color: rgb(76, 175, 80);
-
                     &:hover {
                         transition: 0.5 ease-in-out;
                         background-color: rgba(76, 175, 80, 0.91);

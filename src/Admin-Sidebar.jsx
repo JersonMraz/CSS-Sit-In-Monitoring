@@ -29,12 +29,17 @@ function Sidebar() {
                 </li>
                 <li className={isActive("/Current-Sit-In")}>
                     <a className={isActive("/Current-Sit-In")} onClick={() => navigate("/Current-Sit-In")}>
-                        <i class="fa-solid fa-code"></i>Current Sit-In
+                        <i className="fa-solid fa-code"></i> Current Sit-In
                     </a>
                 </li>
                 <li className={isActive("/Sitin-Records")}>
                     <a className={isActive("/Sitin-Records")} onClick={() => navigate("/Sitin-Records")}>
-                        <i class="fa-solid fa-scroll"></i>Sit-in Records
+                        <i className="fa-solid fa-scroll"></i> Sit-in Records
+                    </a>
+                </li>
+                <li className={isActive("/View-Feedback")}>
+                    <a className={isActive("/View-Feedback")} onClick={() => navigate("/View-Feedback")}>
+                        <i class="fa-solid fa-comments"></i> View Feedback
                     </a>
                 </li>
                 <li className={isActive("/Admin-Settings")}>
