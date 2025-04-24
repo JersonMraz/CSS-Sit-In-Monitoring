@@ -36,37 +36,28 @@ function Login() {
             })
             .then((data) => {
                 console.log("📌 Server Response:", data);
-                const role = data.user.role;
-                console.log("User role: ", role);
+
                 if (!data || !data.resultStatus) {
                     throw new Error("Invalid server response format");
                 }
 
                 const resultMessage = data.resultStatus;
 
-                if (resultMessage.includes("successfully")) {
-                    if(role === "Admin") {
-                        localStorage.setItem("user", JSON.stringify(data.user));
-                        Swal.fire({
-                            title: "Admin",
-                            text: "Logged in as Admin",
-                            icon: "success",
-                            confirmButtonText: "Ok"
-                        }).then(() => {
-                            navigate("/Admin-Dashboard"); //Redirect to Admin dashboard
-                        });
-                    } else {
-                        localStorage.setItem("user", JSON.stringify(data.user));
-                        Swal.fire({
-                            title: "Success",
-                            text: resultMessage,
-                            icon: "success",
-                            confirmButtonText: "OK",
-                        }).then(() => {
-                            navigate("/dashboard"); // Redirect to Dashboard
-                        });
-                    }
+                if (resultMessage == "Logged in successfully!") {
+                    const role = data.user.role;
+                    console.log("User role: ", role);
+    
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    Swal.fire({
+                        title: "Success",
+                        text: resultMessage,
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        navigate(role === "Admin" ? "/Admin-Dashboard" : "/dashboard");
+                    });
                 } else {
+                    // Handle invalid credentials
                     Swal.fire({
                         title: "Error",
                         text: resultMessage,

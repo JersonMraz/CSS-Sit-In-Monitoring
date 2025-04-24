@@ -7,7 +7,9 @@ function Navbar() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [notificationVisible, setNotificationVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const notificationRef = useRef(null);
     const profileRef = useRef(null);
     
     useEffect(() => {
@@ -19,6 +21,12 @@ function Navbar() {
 
     const defaultAvatar = "../Images/default.png";
     const [avatar, setAvatar] = useState(defaultAvatar);
+    const [unreadCount, setUnreadCount] = useState(3);
+
+    const toggleNotification = () => {
+        setNotificationVisible(prev => !prev);
+        setUnreadCount(0);
+    };
 
     const toggleDropdown = () => {
         setDropdownVisible(prev => !prev);
@@ -27,9 +35,15 @@ function Navbar() {
     const handleClickOutside = (e) => {
         if (
             dropdownRef.current && !dropdownRef.current.contains(e.target) &&
-            profileRef.current && !profileRef.current.contains(e.target)
+            profileRef.current && !profileRef.current.contains(e.target) 
         ) {
             setDropdownVisible(false);
+        }
+        if (
+            notificationRef.current && !notificationRef.current.contains(e.target) &&
+            !e.target.closest('.notification')
+        ) {
+            setNotificationVisible(false);
         }
     };
 
@@ -80,7 +94,7 @@ function Navbar() {
                             icon: "error",
                             confirmButtonText: "OK",
                         }).then(() => {
-                            navigate("/"); // Redirect to login
+                            navigate("/");
                         });
                         return;
                     }
@@ -108,8 +122,9 @@ function Navbar() {
                             text: data.resultStatus,
                             icon: data.resultStatus.includes("successfully") ? "success" : "error",
                             confirmButtonText: "OK",
+                            timer: 1200,
+                            timerProgressBar: true,
                         }).then(() => {
-                            // Clear user data from localStorage and redirect
                             localStorage.removeItem("user");
                             navigate("/");
                         });
@@ -125,13 +140,25 @@ function Navbar() {
                     });
                 }
             })
-        };
-
+    };
     return(
         <div className="user-navbar">
             {user ? (
                 <div className="user-nav-container">
-                    <a><i className='fa-solid fa-bell'></i></a>
+                    <a className="notification"
+                    onClick={toggleNotification} 
+                    >
+                        <i className='fa-solid fa-bell'></i>
+                        {unreadCount > 0 && (<span className="badge">{unreadCount}</span>)}
+                    </a>
+                    {notificationVisible && (
+                        <div ref={notificationRef} className='notif-dropdown'>
+                            <ul>
+                                <li>Hoy, time na ka</li>
+                                <li>Out ka na</li>
+                            </ul>
+                        </div>
+                    )}
                     <a ref={profileRef} onClick={toggleDropdown}><img src={avatar} alt="Profile Picture" onError={(e) => e.target.src = defaultAvatar}/><p>{user.firstname} {user.lastname}</p><p className='role'>{user.role}</p></a>
                     {dropdownVisible && (
                         <div ref={dropdownRef} className="dropdown-menu">

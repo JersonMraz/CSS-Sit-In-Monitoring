@@ -9,28 +9,29 @@ function History() {
     const [history, setHistory] = useState([]); // Store sit-in records
     const [loading, setLoading] = useState(true); // Handle loading state
 
-    useEffect(() => {
-        const fetchHistory = async () => {
-            try {
-                const user = JSON.parse(localStorage.getItem("user")); // Get user from localStorage
-                if (!user || !user.idno) {
-                    console.error("No user ID found in localStorage");
-                    return;
-                }
-
-                const response = await axios.get(`http://localhost/Sit-In Monitor Backend/getHistory.php?idno=${user.idno}`);
-                setHistory(response.data);
-                setLoading(false);
-            } catch (error) {
-                console.error("Error fetching history:", error);
-                setLoading(false);
+    const fetchHistory = async () => {
+        try {
+            const user = JSON.parse(localStorage.getItem("user"));
+            if (!user || !user.idno) {
+                console.error("No user ID found in localStorage");
+                return;
             }
-        };
-
+    
+            const response = await axios.get(`http://localhost/Sit-In Monitor Backend/getHistory.php?idno=${user.idno}`);
+            setHistory(response.data);
+            setLoading(false);
+        } catch (error) {
+            console.error("Error fetching history:", error);
+            setLoading(false);
+        }
+    };
+    
+    useEffect(() => {
         fetchHistory();
     }, []);
+    
 
-    function showFeedbackPopup(recordId, recordLab) {
+    function showFeedbackPopup(recordId, SitIn_Id, recordLab) {
         let selectedRating = 0;
 
         const formatTime = () => {
@@ -157,6 +158,7 @@ function History() {
             if (result.isConfirmed) {
                 const user = JSON.parse(localStorage.getItem("user"));
                 const feedbackData = {
+                    SitIn_Id: SitIn_Id,
                     idno: user.idno,
                     studentname: user.firstname + ' ' + user.lastname,
                     record_id: recordId,
@@ -169,13 +171,16 @@ function History() {
                 // Send feedback to the backend via Axios
                 axios.post("http://localhost/Sit-In Monitor Backend/insertFeedback.php", feedbackData)
                     .then(response => {
+                        console.log("Sitin ID: " + feedbackData.SitIn_Id);
                         console.log("User IDNO: " + feedbackData.idno);
                         console.log("Student Name: " + feedbackData.studentname);
                         console.log("Record ID: " + feedbackData.record_id);
                         console.log("Laboratory: " + feedbackData.laboratory);
                         console.log("Rating: " + feedbackData.rating);
                         console.log("Feedback: " + feedbackData.feedback);
-                        Swal.fire("Thank you!", "Your feedback has been submitted.", "success");
+                        Swal.fire("Thank you!", "Your feedback has been submitted.", "success").then(() => {
+                            fetchHistory();
+                        });
                     })
                     .catch(error => {
                         console.error("Error submitting feedback:", error);
@@ -195,7 +200,6 @@ function History() {
                     <table>
                         <thead>
                             <tr>
-                                <th>Record ID</th>
                                 <th>ID Number</th>
                                 <th>Name</th>
                                 <th>Purpose</th>
@@ -211,19 +215,17 @@ function History() {
                                 <tr><td colSpan="8">Loading...</td></tr>
                             ) : history.length > 0 ? (
                                 history.map((record, index) => {
-                                    const isStillInSession = !record.time_out; // Check if session is still ongoing
+                                    const isStillInSession = !record.time_out;
+                                    const hasFeedback = record.has_feedback > 0;
 
                                     return (
                                         <tr key={index}>
-                                            <td style={{ textAlign: "center" }}>{index + 1}</td>
                                             <td>{record.idno}</td>
                                             <td>{record.fullname}</td>
                                             <td>{record.purpose}</td>
                                             <td>{record.lab}</td>
                                             <td>{record.date}</td>
                                             <td>{record.time_in}</td>
-
-                                            {/* Change text color if session is ongoing */}
                                             <td>
                                                 {record.time_out ? (
                                                     record.time_out
@@ -231,21 +233,22 @@ function History() {
                                                     <span style={{ color: "red", fontWeight: "bold" }}>Still in session</span>
                                                 )}
                                             </td>
-
-                                            {/* Disable feedback button if session is still ongoing */}
                                             <td>
+                                                {!hasFeedback && !isStillInSession ? (
                                                 <button
                                                     className="feedBack"
-                                                    onClick={() => showFeedbackPopup(index + 1, record.lab)}
-                                                    disabled={isStillInSession}
+                                                    onClick={() => showFeedbackPopup(record.SitIn_Id, record.SitIn_Id, record.lab)}
                                                     style={{
-                                                        backgroundColor: isStillInSession ? "#ccc" : "rgb(76, 175, 80)", 
-                                                        color: isStillInSession ? "#888" : "#fff",
-                                                        cursor: isStillInSession ? "not-allowed" : "pointer"
+                                                        backgroundColor: "rgb(76, 175, 80)", 
+                                                        color: "#fff",
+                                                        cursor: "pointer"
                                                     }}
-                                                >
+                                                    >
                                                     Feedback
                                                 </button>
+                                                ) : hasFeedback ? (
+                                                    <span style={{ color: "green", fontWeight: "bold" }}>Feedback Submitted</span>
+                                                ) : null}
                                             </td>
                                         </tr>
                                     );

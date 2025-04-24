@@ -37,6 +37,13 @@ function FeedbackTable() {
             });
     };
 
+    const containsProfanity = (message) => {
+        const profanityList = ["shit", "shet", "bushit", "bullshit", "bullshet", "yawa", "peste", "giatay", "animal", "wtf"]; 
+        const lowerCaseMessage = message.toLowerCase();
+        
+        return profanityList.some(word => lowerCaseMessage.includes(word));
+    };
+
     return (
         <div>
             <Sidebar/>
@@ -65,7 +72,7 @@ function FeedbackTable() {
                                             <td>{students.laboratory}</td>
                                             <td>{students.rating}/5</td>
                                             <td>{students.date}</td>
-                                            <td>{students.feedback}</td>
+                                            <td style={{ color: containsProfanity(students.feedback) ? "red" : "black" }}>{students.feedback}</td>
                                         </tr>
                                     ))
                                 ) : (

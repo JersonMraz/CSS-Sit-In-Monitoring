@@ -1,0 +1,541 @@
+@import url("/CustomFont.scss");
+
+.leaderboard-wrapper {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    } 
+
+    .top-3-leaderboard {
+        height: 300px;
+        width: 1440px;
+        margin-top: 5%;
+        gap: 3%;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+
+        .top-1 {
+            width: 33%;
+            height: 28vh;
+            background-color: #fff;
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+            border-radius: 3px;
+
+            .info {
+                width: 100%;
+                height: 45%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: start;
+
+                .profile {
+                    border: 2px solid #ccc;
+                    border-radius: 50%;
+                    width: 70px;
+                    height: 70px;
+                    margin-right: 10px;
+                    margin-left: 20px;
+                    object-fit: cover;
+                }
+                .circol {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    right: 58%;
+                    top: 18%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: red;
+                    color: #fff;
+                    font-family: 'Poppins-Regular';
+                    font-size: 15px;
+                    border: 2px solid white;
+                }
+                .name {
+                    height: 40%;
+                    gap: 5px;
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    align-items: start;
+                    h6 {
+                        font-family: 'Poppins-Bold';
+                        font-size: 1rem;
+                        color: #3D3C3A;
+                        margin: 0;
+                    }
+                    p {
+                        font-family: 'Poppins-Regular';
+                        font-size: .8rem;
+                        color: #808080;
+                        margin: 0;
+                    }
+                }
+                .medalIcon {
+                    margin-left: auto;
+                    padding: 0px 25px;
+                    width: 90px;
+                    height: 100%;
+                }
+            }
+            .top-1-statistics {
+                width: 100%;
+                height: 19%;
+                gap: 45px;
+                margin-top: 5%;
+                display: flex;
+                flex-direction: row;
+                .student-points {
+                    margin: 0;
+                    margin-left: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .session {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .totalSitin {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+        .top-2 {
+            width: 34%;
+            height: 23vh;
+            background-color: #fff;
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+            border-radius: 3px;
+
+            .info {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: start;
+
+                .profile {
+                    border: 2px solid #ccc;
+                    border-radius: 50%;
+                    width: 70px;
+                    height: 70px;
+                    margin-right: 10px;
+                    margin-left: 20px;
+                    object-fit: cover;
+                }
+                .circol2 {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    right: 90.5%;
+                    top: 23%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: red;
+                    color: #fff;
+                    font-family: 'Poppins-Regular';
+                    font-size: 15px;
+                    border: 2px solid white;
+                }
+                .name {
+                    height: 40%;
+                    gap: 5px;
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    align-items: start;
+                    h6 {
+                        font-family: 'Poppins-Bold';
+                        font-size: 1rem;
+                        color: #3D3C3A;
+                        margin: 0;
+                    }
+                    p {
+                        font-family: 'Poppins-Regular';
+                        font-size: .8rem;
+                        color: #808080;
+                        margin: 0;
+                    }
+                }
+                .medalIcon {
+                    margin-left: auto;
+                    padding: 0px 25px;
+                    width: 120px;
+                    height: 100%;
+                }
+            }
+            .top-1-statistics {
+                width: 100%;
+                height: 19%;
+                gap: 45px;
+                margin-top: 5%;
+                display: flex;
+                flex-direction: row;
+                .student-points {
+                    margin: 0;
+                    margin-left: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .session {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .totalSitin {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+        .top-3 {
+            width: 33%;
+            height: 18vh;
+            background-color: #fff;
+            box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+            border-radius: 3px;
+
+            .info {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: start;
+
+                .profile {
+                    border: 2px solid #ccc;
+                    border-radius: 50%;
+                    width: 70px;
+                    height: 70px;
+                    margin-right: 10px;
+                    margin-left: 20px;
+                    object-fit: cover;
+                }
+                .circol2 {
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    right: 26.2%;
+                    top: 27%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: red;
+                    color: #fff;
+                    font-family: 'Poppins-Regular';
+                    font-size: 15px;
+                    border: 2px solid white;
+                }
+                .name {
+                    height: 40%;
+                    gap: 5px;
+                    display: flex;
+                    position: relative;
+                    flex-direction: column;
+                    align-items: start;
+                    h6 {
+                        font-family: 'Poppins-Bold';
+                        font-size: 1rem;
+                        color: #3D3C3A;
+                        margin: 0;
+                    }
+                    p {
+                        font-family: 'Poppins-Regular';
+                        font-size: .8rem;
+                        color: #808080;
+                        margin: 0;
+                    }
+                }
+                .medalIcon {
+                    margin-left: auto;
+                    padding: 0px 25px;
+                    width: 100px;
+                    height: 100%;
+                }
+            }
+            .top-1-statistics {
+                width: 100%;
+                height: 19%;
+                gap: 45px;
+                margin-top: 5%;
+                display: flex;
+                flex-direction: row;
+                .student-points {
+                    margin: 0;
+                    margin-left: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .session {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+                .totalSitin {
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .dako {
+                        margin: 0;
+                        font-size: .9rem;
+                        font-family: 'Poppins-Medium';
+                        color: #808080;
+                        text-transform: uppercase;
+                    }
+                    .gamay {
+                        margin: 0;
+                        font-size: 1.2rem;
+                        font-family: 'Poppins-Regular';
+                        color: black;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+
+    .leaderboard-table {
+        margin-top: 3%;
+        width: 1440px;
+        height: 500px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+
+        table {
+            width: 100%;
+            margin: 0px;
+            padding: 0px;
+            border-radius: 3px;
+            border-collapse: collapse;
+            thead {
+                position: sticky;
+                top: 0;
+                background-color: #F5E8B6;
+                color: black;
+                tr th {
+                    background-color: #F5E8B6;
+                    text-align: left;
+                    padding: 10px 20px;
+                    color: black;
+                    font-family: 'Poppins-Regular';
+                    font-size: 1rem;
+                }
+            }
+            tbody tr {
+                border-bottom: 1px solid #ddd;
+                cursor: default;
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+            tbody tr td {
+                padding: 10px 20px;
+            }
+            tbody tr .rank .rank-sirkol {
+                padding: 5px 15px;
+                border-radius: 50%;
+                color: #3D3C3A;
+                font-family: 'Poppins-Medium';
+            }
+            tbody tr:nth-child(1) .rank .rank-sirkol {
+                background-color: gold;
+                color: rgb(155, 141, 61);
+            }
+            tbody tr:nth-child(2) .rank .rank-sirkol {
+                background-color: silver;
+                color: rgb(99, 99, 99);
+            }
+            tbody tr:nth-child(3) .rank .rank-sirkol {
+                background-color: #cd7f32;
+                color: #ffeddb;
+            }
+            tbody tr .row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+            }
+            tbody tr td .profilepic {
+                border-radius: 50%;
+                object-fit: cover;
+                width: 40px;
+                height: 40px;
+            }
+            tbody tr td .username {
+                display: flex;
+                flex-direction: column;
+
+                .name {
+                    margin: 0;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: 1rem;
+                    color: #3D3C3A;
+                }
+                .idno {
+                    margin: 0;
+                    font-family: 'Poppins-Regular';
+                    font-size: .8rem;
+                    color: #808080;
+                }
+            }
+            tbody tr:nth-child(even) {
+                background-color: #f1f1f1;
+                cursor: default;
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+}

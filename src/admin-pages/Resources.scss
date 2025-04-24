@@ -1,0 +1,164 @@
+@import url("/CustomFont.scss");
+
+.resources-wrapper {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    } 
+
+    .resources-content {
+        margin-top: 5%;
+        width: 1440px;
+        height: 840px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+
+        .upload-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            
+            .upload-area {
+                cursor: pointer;
+                text-align: center;
+                border: 2px dashed #E9BE5F;
+                margin-top: 4%;
+                padding: 30px;
+                border-radius: 8px;
+                width: 100%;
+                max-width: 600px;
+                background-color: #fdf4cf;
+                position: relative;
+                i {
+                    font-size: 3rem;
+                    color: #E9BE5F;
+                }
+
+                p {
+                    font-family: 'Poppins-Regular';
+                    font-size: 1rem;
+                    color: #6b6b6b;
+                    margin: 10px 0;
+                }
+
+                .select-file-btn {
+                    background-color: #E9BE5F;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    font-family: 'Poppins-SemiBold';
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: #c49f50;
+                    }
+                }
+
+                .file-size-info {
+                    font-size: 0.8rem;
+                    color: #6b6b6b9f;
+                }
+                .file-preview {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    i {
+                        font-size: 3rem;
+                        color: #E9BE5F;
+                    }
+
+                    p {
+                        font-family: 'Poppins-Regular';
+                        font-size: 1rem;
+                        color: #6b6b6b;
+                        margin-top: 2%;
+                    }
+                    .file-size {
+                        font-size: 0.9rem;
+                        color: #6b6b6b;
+                        margin-top: 0px;
+                    }
+                }
+            }
+
+            .form-fields {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                max-width: 600px;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        font-family: 'Poppins-SemiBold';
+                        font-size: 0.9rem;
+                        color: #505050;
+                        margin-bottom: 5px;
+                    }
+                    select,
+                    textarea {
+                        padding: 10px;
+                        border: 1px solid #E9BE5F;
+                        border-radius: 5px;
+                        background-color: #fdf4cf;
+                        color: black;
+                        font-family: 'Poppins-Regular';
+                        font-size: 0.9rem;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                    textarea {
+                        resize: none;
+                        height: 80px;
+                    }
+                }
+            }
+
+            .upload-btn {
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 5px;
+                font-family: 'Poppins-SemiBold';
+                cursor: pointer;
+                transition: background-color 0.3s;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                &:hover {
+                    background-color: #c49f50;
+                }
+
+                i {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

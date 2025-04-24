@@ -26,7 +26,163 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        .statistics {
+            width: 100%;
+            height: 22%;
+            margin-bottom: 2.5%;
+            display: flex;
+            flex-direction: row;
+            gap: 70px;
 
+            .totalStudents {
+                width: 25%;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                border: 1px solid #fff;
+                display: flex;
+                flex-direction: row;
+
+                .content {
+                    border-radius: 10px;
+                    width: 50%;
+                    background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    .content-details {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        h2 {
+                            font-size: 3rem;
+                            font-family: 'Poppins-SemiBold';
+                            margin-bottom: -7%;
+                            margin-top: 6%;
+                            margin-left: 25%;
+                        }
+                        p {
+                            font-family: 'Poppins-Regular';
+                            font-size: .8rem;
+                            margin-left: 25%;
+                            color: #5a5a5a;
+                        }
+                    }
+                }
+                .icon {
+                    border-radius: 10px;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    i {
+                        font-size: 3.5rem;
+                        color: #E9BE5F;
+                    }
+                }
+            }
+            .totalsitin {
+                width: 25%;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                border: 1px solid #fff;
+                display: flex;
+                flex-direction: row;
+                .content {
+                    border-radius: 10px;
+                    width: 50%;
+                    background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    .content-details {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        h2 {
+                            font-size: 3rem;
+                            font-family: 'Poppins-SemiBold';
+                            margin-bottom: -7%;
+                            margin-top: 10%;
+                            margin-left: 25%;
+                        }
+                        p {
+                            font-family: 'Poppins-Regular';
+                            font-size: .8rem;
+                            margin-left: 25%;
+                            color: #5a5a5a;
+                        }
+                    }
+                }
+                .icon {
+                    border-radius: 10px;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    i {
+                        font-size: 3.5rem;
+                        color: #E9BE5F;
+                    }
+                }
+            }
+            .currentsitin {
+                width: 25%;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                border: 1px solid #fff;
+                display: flex;
+                flex-direction: row;
+                .content {
+                    border-radius: 10px;
+                    width: 50%;
+                    background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    .content-details {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        h2 {
+                            font-size: 3rem;
+                            font-family: 'Poppins-SemiBold';
+                            margin-bottom: -7%;
+                            margin-top: 10%;
+                            margin-left: 25%;
+                        }
+                        p {
+                            font-family: 'Poppins-Regular';
+                            font-size: .8rem;
+                            margin-left: 25%;
+                            color: #5a5a5a;
+                        }
+                    }
+                }
+                .icon {
+                    border-radius: 10px;
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    i {
+                        font-size: 3.5rem;
+                        color: #E9BE5F;
+                    }
+                }
+            }
+        }
         .studentLists {
             width: 100%;
             height: 560px;
@@ -129,6 +285,19 @@
                     }
                 }
                 tbody td .btn-delete {
+                    padding: 10px 15px;
+                    background-color: #e74c3c;
+                    cursor: pointer;
+                    border: none;
+                    color: #fff;
+                    border-radius: 3px;
+                    font-family: 'Poppins-Regular';
+                    font-size: 13px;
+                    &:hover {
+                        background-color: #c0392b;
+                    }
+                }
+                tbody td .btn-reset {
                     padding: 10px 15px;
                     background-color: #e74c3c;
                     cursor: pointer;

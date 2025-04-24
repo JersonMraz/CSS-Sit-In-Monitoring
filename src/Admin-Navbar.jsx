@@ -7,7 +7,9 @@ function Navbar() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [notificationVisible, setNotificationVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const notificationRef = useRef(null);
     const profileRef = useRef(null);
     const [searchId, setSearchId] = useState("");
     
@@ -20,6 +22,12 @@ function Navbar() {
 
     const defaultAvatar = "../Images/default.png";
     const [avatar, setAvatar] = useState(defaultAvatar);
+    const [unreadCount, setUnreadCount] = useState(2);
+
+    const toggleNotification = () => {
+        setNotificationVisible(prev => !prev);
+        setUnreadCount(0);
+    };
 
     const toggleDropdown = () => {
         setDropdownVisible(prev => !prev);
@@ -31,6 +39,12 @@ function Navbar() {
             profileRef.current && !profileRef.current.contains(e.target)
         ) {
             setDropdownVisible(false);
+        }
+        if (
+            notificationRef.current && !notificationRef.current.contains(e.target) &&
+            !e.target.closest('.notification')
+        ) {
+            setNotificationVisible(false);
         }
     };
 
@@ -111,18 +125,28 @@ function Navbar() {
                                 <input type="text" id="fullname" class="swal-input" value="${data.student.fullname}" readonly>
                                 <select id="purpose" class="swal-select">
                                     <option value="" disabled selected>Purpose</option>
-                                    <option value="C++">C++</option>
-                                    <option value="C#">C#</option>
-                                    <option value="Java">Java</option>
-                                    <option value="HTML & CSS">HTML & CSS</option>
-                                    <option value="JavaScript">JavaScript</option>
-                                    <option value="Python">Python</option>
+                                    <option value="C# Programming">C# Programming</option>
+                                    <option value="C Programming">C Programming</option>
+                                    <option value="Java Programming">Java Programming</option>
+                                    <option value="Systems Integration & Architecture">Systems Integration & Architecture</option>
+                                    <option value="Embedded Systems & IoT">Embedded Systems & IoT</option>
+                                    <option value="Digital Logic & Design">Digital Logic & Design</option>
+                                    <option value="Computer Application">Computer Application</option>
+                                    <option value="Database">Database</option>
+                                    <option value="Project Management">Project Management</option>
+                                    <option value="Python Programming">Python Programming</option>
+                                    <option value="Mobile Application">Mobile Application</option>
+                                    <option value="Others">Others..</option>
                                 </select>
                                 <select id="lab" class="swal-select">
                                     <option value="" disabled selected>Laboratory Room</option>
-                                    <option value="544">Room 544</option>
-                                    <option value="542">Room 542</option>
-                                    <option value="530">Room 530</option>
+                                    <option value="Lab 524">Lab 524</option>
+                                    <option value="Lab 526">Lab 526</option>
+                                    <option value="Lab 528">Lab 528</option>
+                                    <option value="Lab 530">Lab 530</option>
+                                    <option value="Lab 542">Lab 542</option>
+                                    <option value="Lab 544">Lab 544</option>
+                                    <option value="Lab 517">Lab 517</option>
                                 </select>
                                 <input type="text" class="swal-input" value="${data.student.remaining_session}" readonly>
                             </div>
@@ -165,9 +189,14 @@ function Navbar() {
                                 }
                                 
                                 if (data.status === "success") {
-                                    Swal.fire("Success!", "Student added successfully.", "success");
-                                    setSearchId("");
-                                    
+                                    Swal.fire({
+                                        title: "Success!", 
+                                        text: "Student added successfully.", 
+                                        icon: "success"
+                                    }).then(() => {
+                                        setSearchId("");
+                                        window.location.reload();
+                                    });
                                 } else {
                                     Swal.fire("Oops!", "This student has already checked in.", "warning");
                                     setSearchId("");
@@ -237,8 +266,9 @@ function Navbar() {
                             text: data.resultStatus,
                             icon: data.resultStatus.includes("successfully") ? "success" : "error",
                             confirmButtonText: "OK",
+                            timer: 1200,
+                            timerProgressBar: true
                         }).then(() => {
-                            // Clear user data from localStorage and redirect
                             localStorage.removeItem("user");
                             navigate("/");
                         });
@@ -264,7 +294,20 @@ function Navbar() {
             </div>
             {user ? (
                 <div className="container">
-                    <a><i className='fa-solid fa-bell'></i></a>
+                    <a className="notification"
+                      onClick={toggleNotification}
+                    >
+                        <i className='fa-solid fa-bell'></i>
+                        {unreadCount > 0 && (<span className="badge">{unreadCount}</span>)}
+                    </a>
+                    {notificationVisible && (
+                        <div ref={notificationRef} className='notif-dropdown'>
+                            <ul>
+                                <li>Hoy, time na ka</li>
+                                <li>Out ka na</li>
+                            </ul>
+                        </div>
+                    )}
                     <a ref={profileRef} onClick={toggleDropdown}><img src={avatar} alt="Profile Picture" onError={(e) => e.target.src = defaultAvatar}/><p>{user.firstname} {user.lastname}</p><p className='role'>{user.role}</p></a>
                     {dropdownVisible && (
                         <div ref={dropdownRef} className="dropdown-menu">

@@ -48,9 +48,9 @@ function AdminProfile() {
         <div>
             <Sidebar />
             <Navbar />
-            <div className="UserProfile">
+            <div className="AdminProfile">
                 <h1>My Profile</h1>
-                <div className="UserProfileContainer">
+                <div className="AdminProfileContainer">
                     <div className="ProfileHeader">
                         <div className="userinfo">
                             <img src={avatar} alt="Profile Picture" onError={(e) => e.target.src = defaultAvatar} />

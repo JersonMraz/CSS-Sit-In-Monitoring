@@ -24,7 +24,7 @@ function Sidebar() {
                 </li>
                 <li className={isActive("/Admin-Announcement")}>
                     <a className={isActive("/Admin-Announcement")} onClick={() => navigate("/Admin-Announcement")}>
-                        <i className='fa-solid fa-bullhorn'></i>Announcement
+                        <i className='fa-solid fa-bullhorn'></i> Announcement
                     </a>
                 </li>
                 <li className={isActive("/Current-Sit-In")}>
@@ -40,6 +40,26 @@ function Sidebar() {
                 <li className={isActive("/View-Feedback")}>
                     <a className={isActive("/View-Feedback")} onClick={() => navigate("/View-Feedback")}>
                         <i class="fa-solid fa-comments"></i> View Feedback
+                    </a>
+                </li>
+                <li className={isActive("/Resources")}>
+                    <a className={isActive("/Resources")} onClick={() => navigate("/Resources")}>
+                        <i class="fa-solid fa-folder-open"></i> Upload Resources
+                    </a>
+                </li>
+                <li className={isActive("/View-Resources")}>
+                    <a className={isActive("/View-Resources")} onClick={() => navigate("/View-Resources")}>
+                        <i class="fa-solid fa-folder-open"></i> View Resources
+                    </a>
+                </li>
+                <li className={isActive("/Lab-Schedule")}>
+                    <a className={isActive("/Lab-Schedule")} onClick={() => navigate("/Lab-Schedule")}>
+                        <i className="fa-solid fa-calendar"></i> Lab Schedule
+                    </a>
+                </li>
+                <li className={isActive("/Leaderboard-Admin")}>
+                    <a className={isActive("/Leaderboard-Admin")} onClick={() => navigate("/Leaderboard-Admin")}>
+                        <i className='fa-solid fa-trophy'></i> Leaderboard
                     </a>
                 </li>
                 <li className={isActive("/Admin-Settings")}>

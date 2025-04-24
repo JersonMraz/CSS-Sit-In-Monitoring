@@ -1,0 +1,201 @@
+@import url("/CustomFont.scss");
+
+.lab-resources-wrapper {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    }
+
+    .lab-resources-list {
+        margin-top: 5%;
+        width: 1440px;
+        height: 840px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow-y: auto;
+
+        /* Scrollbar styling */
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #c4c4c4;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: #a0a0a0;
+        }
+
+        .resource-item {
+            flex: 1 1 calc(25%);
+            max-width: calc(25%);
+            max-height: 20vh;
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .published-on {
+                font-family: 'Poppins-Regular';
+                font-size: 0.8rem;
+                color: #888;
+                margin-bottom: 10px;
+            }
+
+            i {
+                font-size: 3rem;
+                color: #E9BE5F;
+                margin-bottom: 10px;
+            }
+
+            span {
+                font-family: 'Poppins-Medium';
+                font-size: 1rem;
+                color: #333;
+                margin-bottom: 10px;
+                word-wrap: break-word;
+            }
+
+            .download-link {
+                text-decoration: none;
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 5px;
+                font-family: 'Poppins-SemiBold';
+                font-size: 0.9rem;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: background-color 0.3s;
+            
+                i {
+                    font-size: 1rem;
+                    color: #fff;
+                }
+
+                &:hover {
+                    background-color: #357ab8;
+                }
+            }
+        }
+    }
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+
+        .modal-content {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: start;
+
+            i#file {
+                font-size: 4rem;
+                color: #E9BE5F;
+            }
+        
+            h2 {
+                font-family: 'Poppins-SemiBold';
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+        
+            p {
+                font-family: 'Poppins-Regular';
+                font-size: 1rem;
+                color: #555;
+                margin: 10px 0;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: #888;
+                cursor: pointer;
+                transition: color 0.3s;
+        
+                &:hover {
+                    color: #e74c3c;
+                }
+        
+                i {
+                    font-size: 1.5rem;
+                }
+            }
+        
+            .download-btn {
+                background-color: #E9BE5F;
+                color: #fff;
+                border: none;
+                padding: 7px 15px;
+                border-radius: 5px;
+                font-family: 'Poppins-SemiBold';
+                font-size: .9rem;
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                gap: 5px;
+                transition: background-color 0.3s;
+        
+                i {
+                    font-size: 1rem;
+                    color: #fff;
+                }
+
+                &:hover {
+                    background-color: #357ab8;
+                }
+            }
+        }
+    }
+}

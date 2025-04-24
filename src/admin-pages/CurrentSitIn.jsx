@@ -76,12 +76,44 @@ function CurrentSitIn() {
                 .then(data => {                    
                     if (data.status === "success") {
                         Swal.fire({
-                            title: "Success!",
-                            text: "User logged out successfully.",
-                            icon: "success",
-                            confirmButtonText: "OK"
-                        });
-                        fetchSitInRecords();
+                            title: "Logged out successfully!",
+                            text: "Do you want to reward this student a point?",
+                            icon: "question",
+                            showCancelButton: true,
+                            confirmButtonText: "Yes",
+                            cancelButtonText: "No",
+                            confirmButtonColor: "#E9BE5F",
+                            cancelButtonColor: "#d33",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                fetch("http://localhost/Sit-In Monitor Backend/Add_Point.php", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json" },
+                                    body: JSON.stringify({idno})
+                                })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.status === "success") {
+                                        fetchSitInRecords();
+                                        Swal.fire({
+                                            title: "Point Added", 
+                                            text: "Student received a point.", 
+                                            icon: "success",
+                                            timerProgressBar: true,
+                                            timer: 1100
+                                        });
+                                    } else {
+                                        Swal.fire("Error", data.message || "Failed to add point.", "error");
+                                    }
+                                })
+                                .catch(err => {
+                                    console.error("Add Point Error:", err);
+                                    Swal.fire("Error", "Failed to add point. Check console.", "error");
+                                });
+                            } else {
+                                fetchSitInRecords();
+                            }
+                        })
                     } else {
                         Swal.fire({
                             title: "Error!",
