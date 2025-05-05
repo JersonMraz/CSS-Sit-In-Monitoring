@@ -148,7 +148,6 @@ function Resources() {
                             <div className="form-group">
                                 <label htmlFor="available-to">Exclusive For</label>
                                 <select id="available-to">
-                                    <option>All Users</option>
                                     <option>Admins</option>
                                     <option>Students</option>
                                 </select>

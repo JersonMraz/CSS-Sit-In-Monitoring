@@ -7,10 +7,14 @@ function Navbar() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
-    const [notificationVisible, setNotificationVisible] = useState(false);
     const dropdownRef = useRef(null);
     const notificationRef = useRef(null);
     const profileRef = useRef(null);
+    const [notificationFilter, setNotificationFilter] = useState("all"); // "all" or "unread"
+
+    const [notifications, setNotifications] = useState([]);
+    const [unreadCount, setUnreadCount] = useState(0);
+    const [notificationVisible, setNotificationVisible] = useState(false);
     
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -21,12 +25,6 @@ function Navbar() {
 
     const defaultAvatar = "../Images/default.png";
     const [avatar, setAvatar] = useState(defaultAvatar);
-    const [unreadCount, setUnreadCount] = useState(3);
-
-    const toggleNotification = () => {
-        setNotificationVisible(prev => !prev);
-        setUnreadCount(0);
-    };
 
     const toggleDropdown = () => {
         setDropdownVisible(prev => !prev);
@@ -73,6 +71,48 @@ function Navbar() {
                 });
         }
     }, []);
+
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        console.log("User idno: " + user.idno);
+        if (user) {
+            fetch(`http://localhost/Sit-In Monitor Backend/get_notifications.php?for_idno=${user.idno}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === "success") {
+                        setNotifications(data.notifications);
+                        const unread = data.notifications.filter((notif) => notif.status === "unread").length;
+                        setUnreadCount(unread);
+                    } else {
+                        console.error("Failed to fetch notifications:", data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching notifications:", error);
+                });
+        }
+    }, []);
+
+    const markNotificationsAsRead = () => {
+        setNotifications((prev) =>
+            prev.map((notif) => ({ ...notif, status: "read" }))
+        );
+        setUnreadCount(0);
+    
+        fetch("http://localhost/Sit-In Monitor Backend/mark_notifications_read.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+        }).catch((error) => {
+            console.error("Error marking notifications as read:", error);
+        });
+    };
+
+    const toggleNotification = () => {
+        setNotificationVisible((prev) => !prev);
+        if (!notificationVisible) {
+            markNotificationsAsRead();
+        }
+    };
 
     const handleLogout = () => {
             Swal.fire({
@@ -149,13 +189,41 @@ function Navbar() {
                     onClick={toggleNotification} 
                     >
                         <i className='fa-solid fa-bell'></i>
-                        {unreadCount > 0 && (<span className="badge">{unreadCount}</span>)}
+                        {unreadCount > 0 && <span className="badge">{unreadCount}</span>}
                     </a>
                     {notificationVisible && (
-                        <div ref={notificationRef} className='notif-dropdown'>
+                        <div ref={notificationRef} className="notif-dropdown">
                             <ul>
-                                <li>Hoy, time na ka</li>
-                                <li>Out ka na</li>
+                                <div className="notif-header">
+                                    <p className='notif-big'>Notifications</p>
+                                </div>
+                                <div className="filter">
+                                    <button
+                                        className={`all-btn ${notificationFilter === "all" ? "active" : ""}`}
+                                        onClick={() => setNotificationFilter("all")}
+                                    >
+                                        All
+                                    </button>
+                                    <button
+                                        className={`unread-btn ${notificationFilter === "unread" ? "active" : ""}`}
+                                        onClick={() => setNotificationFilter("unread")}
+                                    >
+                                        Unread
+                                    </button>
+                                </div>
+                                {notifications.length > 0 ? (
+                                    notifications
+                                        .filter((notif) => notificationFilter === "all" || notif.status === "unread")
+                                        .map((notif) => (
+                                            <li key={notif.id} className={notif.status}>
+                                                <span className="sirkol-unread"></span>
+                                                {notif.message}
+                                            </li>
+                                            
+                                        ))
+                                ) : (
+                                    <li className='no-notif'>No notifications</li>
+                                )}
                             </ul>
                         </div>
                     )}

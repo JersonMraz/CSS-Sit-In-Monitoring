@@ -49,8 +49,8 @@
             flex: 1 1 calc(25%);
             max-width: calc(25%);
             max-height: 20vh;
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
+            background-color: #fdf4cf;
+            border: 2px solid #E9BE5F;
             border-radius: 8px;
             padding: 15px;
             margin: 20px;
@@ -108,7 +108,7 @@
                 }
 
                 &:hover {
-                    background-color: #357ab8;
+                    background-color: #fdd06d;
                 }
             }
         }
@@ -172,28 +172,59 @@
                 }
             }
         
-            .download-btn {
-                background-color: #E9BE5F;
-                color: #fff;
-                border: none;
-                padding: 7px 15px;
-                border-radius: 5px;
-                font-family: 'Poppins-SemiBold';
-                font-size: .9rem;
-                cursor: pointer;
+            .btns {
                 display: flex;
                 flex-direction: row;
-                align-content: center;
-                gap: 5px;
-                transition: background-color 0.3s;
-        
-                i {
-                    font-size: 1rem;
+                justify-content: space-around;
+                .download-btn {
+                    background-color: #E9BE5F;
                     color: #fff;
+                    border: none;
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: .9rem;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    align-content: center;
+                    gap: 5px;
+                    transition: background-color 0.3s;
+                    text-decoration: none;
+            
+                    i {
+                        font-size: 1rem;
+                        color: #fff;
+                    }
+    
+                    &:hover {
+                        background-color: #fdd06d;
+                    }
                 }
 
-                &:hover {
-                    background-color: #357ab8;
+                .delete-file-btn {
+                    background-color: #e74c3c;
+                    color: #fff;
+                    border: none;
+                    padding: 7px 15px;
+                    border-radius: 5px;
+                    font-family: 'Poppins-SemiBold';
+                    font-size: .9rem;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    align-content: center;
+                    gap: 5px;
+                    transition: background-color 0.3s;
+            
+                    i {
+                        font-size: 1rem;
+                        color: #fff;
+                    }
+    
+                    &:hover {
+                        background-color: #e74d3c9f;
+                    }
                 }
             }
         }

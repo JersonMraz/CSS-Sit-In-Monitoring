@@ -3,7 +3,7 @@ import Sidebar from "../Sidebar.jsx";
 import Navbar from "../navbar.jsx";
 import { useState, useEffect } from "react";
 
-function SitinRecords() {
+function Leaderboard() {
     const [students, setStudents] = useState([]);
 
     useEffect(() => {
@@ -175,4 +175,4 @@ function SitinRecords() {
         </div>
     );
 }
-export default SitinRecords;
+export default Leaderboard;

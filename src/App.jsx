@@ -22,6 +22,8 @@ import Leaderboard from "./admin-pages/Leaderboard.jsx";
 import LabSchedule from "./admin-pages/LabSchedule.jsx";
 import Resources from "./admin-pages/Resources.jsx";
 import ViewResources from "./admin-pages/ViewResources.jsx";
+import ReservationRequest from "./admin-pages/ReservationRequest.jsx";
+import CompLabManagement from "./admin-pages/CompLabManagement.jsx";
 
 function App() {
   return(
@@ -49,6 +51,8 @@ function App() {
         <Route path="/Lab-Schedule" element={<LabSchedule />} />
         <Route path="/Resources" element={<Resources />}/>
         <Route path="/View-Resources" element={<ViewResources />}/>
+        <Route path="/Reservation-Request" element={<ReservationRequest />} />
+        <Route path="/CompLab-Management" element={<CompLabManagement />} />
       </Routes>
     </>
   );

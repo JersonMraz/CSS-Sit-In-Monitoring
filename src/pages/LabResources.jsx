@@ -170,9 +170,9 @@ function LabResources() {
                             <p><strong>Description:</strong> {selectedResource.description}</p>
                             <p><strong>Date Created:</strong> {selectedResource.dateCreated}</p>
                             <p><strong>Published By:</strong> {selectedResource.publishedBy}</p>
-                            <button className="download-btn">
+                            <a download={selectedResource.filename} href={selectedResource.filepath} className="download-btn">
                                 <i className="fa-solid fa-download"></i> Download
-                            </button>
+                            </a>
                         </div>
                     </div>
                 )}

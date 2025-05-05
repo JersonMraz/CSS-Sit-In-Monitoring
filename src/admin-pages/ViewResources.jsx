@@ -2,6 +2,7 @@ import "./ViewResources.scss";
 import Sidebar from "../Admin-Sidebar.jsx";
 import Navbar from "../Admin-Navbar.jsx";
 import { useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 
 function ViewResources() {
     const [modalVisible, setModalVisible] = useState(false);
@@ -33,6 +34,55 @@ function ViewResources() {
         setSelectedResource(null);
     };
     
+    const deleteFile = async (id) => {
+        console.log(id);
+        Swal.fire({
+            title: "Delete file",
+            text: "Are you sure you want to delete this file?",
+            icon: "question",
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            confirmButtonText: "Yes, delete",
+            confirmButtonColor: "#e74c3c"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("http://localhost/Sit-In Monitor Backend/delete-resource.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ id: selectedResource.id }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.status === "success") {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: data.message,
+                                icon: "success",
+                                confirmButtonText: "OK",
+                            });
+                            setResources(resources.filter((resource) => resource.id !== selectedResource.id));
+                            closeModal();
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: data.message,
+                            });
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting file:", error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "An error occurred while deleting the file.",
+                        });
+                    });
+            };
+        });
+    }
 
     return (
         <div>
@@ -61,7 +111,7 @@ function ViewResources() {
                     <div className="modal-overlay" onClick={closeModal}>
                         <div
                             className="modal-content"
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+                            onClick={(e) => e.stopPropagation()} 
                         >
                             <button className="close-btn" onClick={closeModal}>
                                 <i className="fa-solid fa-xmark"></i>
@@ -71,9 +121,14 @@ function ViewResources() {
                             <p><strong>Description:</strong> {selectedResource.description}</p>
                             <p><strong>Date Created:</strong> {selectedResource.dateCreated}</p>
                             <p><strong>Published By:</strong> {selectedResource.publishedBy}</p>
-                            <button className="download-btn">
-                                <i className="fa-solid fa-download"></i> Download
-                            </button>
+                            <div className="btns">
+                                <a download={selectedResource.filename} href={selectedResource.filepath} className="download-btn">
+                                    <i className="fa-solid fa-download"></i> Download
+                                </a>
+                                <button className="delete-file-btn" onClick={() => deleteFile(selectedResource.id)}>
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     </div>
                 )}

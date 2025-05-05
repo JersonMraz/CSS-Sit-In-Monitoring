@@ -53,7 +53,7 @@ function CurrentSitIn() {
         return `${hours}:${formattedMinutes} ${ampm}`;
     };
 
-    const handleLogout = (idno) => {
+    const handleLogout = (idno, lab, pc_num) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You are about to log out this user.",
@@ -70,7 +70,7 @@ function CurrentSitIn() {
                 fetch("http://localhost/Sit-In Monitor Backend/Logout_Sitin.php", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ idno, time_out })
+                    body: JSON.stringify({ idno, lab, pc_num, time_out })
                 })
                 .then(response => response.json())
                 .then(data => {                    
@@ -151,6 +151,7 @@ function CurrentSitIn() {
                                     <th>Name</th>
                                     <th>Purpose</th>
                                     <th>Laboratory Room</th>
+                                    <th>PC No.</th>
                                     <th>Date</th>
                                     <th>Time</th>
                                     <th>Action</th>
@@ -164,12 +165,13 @@ function CurrentSitIn() {
                                             <td>{students.fullname}</td>
                                             <td>{students.purpose}</td>
                                             <td>{students.lab}</td>
+                                            <td>{students.pc_num}</td>
                                             <td>{students.date}</td>
                                             <td>{students.time_in}</td>
                                             <td>
                                                 <button 
                                                     className="logout-btn" 
-                                                    onClick={() => handleLogout(students.idno)}
+                                                    onClick={() => handleLogout(students.idno, students.lab, students.pc_num)}
                                                 >
                                                     Logout
                                                 </button>

@@ -1,3 +1,3 @@
 # CSS Sit-In Monitoring System
 
-Exercising by implementing a system using VITE and ReactJS
+Exercising by implementing a system using ReactJS powered by VITE.

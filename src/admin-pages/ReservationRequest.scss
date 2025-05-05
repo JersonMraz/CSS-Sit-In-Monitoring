@@ -1,0 +1,164 @@
+@import url("/CustomFont.scss");
+
+.reservation-request-wrapper {
+    width: 1543px;
+    height: 89vh;
+    margin-left: 375px;
+    margin-top: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    h1 {
+        font-family: 'Poppins-SemiBold';
+        left: 3.2%;
+        top: 0px;
+        position: absolute;
+        color: #282823;
+    }
+
+    .reservation-request-list {
+        margin-top: 5%;
+        width: 1440px;
+        height: 840px;
+        border-radius: 3px;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),0 4px 10px 0 rgba(0,0,0,0.19);
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .count {
+            position: relative;
+            width: 95%;
+            text-align: right;
+            font-family: 'Poppins-Medium';
+            color: #282823;
+        }
+        .items {
+            margin: auto;
+            margin-top: 1%;
+            max-width: 95%;
+            min-width: 95%;
+            padding-top: 10px;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            row-gap: 50px;
+            flex-wrap: wrap;
+            overflow-y: scroll; 
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+
+            /* Scrollbar styling */
+            &::-webkit-scrollbar {
+                width: 8px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #c4c4c4;
+                border-radius: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #a0a0a0;
+            }
+
+            .request-item {
+                flex: 0 0 calc(50% - 35px);
+                max-width: calc(47% - 50px);
+                max-height: 33vh;
+                border: 2px solid #E9BE5F;
+                background-color: #fdf4cf;
+                border-radius: 5px;
+                padding: 0px 30px;
+                display: flex;
+                flex-direction: column;
+
+                &:hover {
+                    transform: translateY(-5px);
+                    transition: transform 0.3s ease-in-out;
+                }
+                
+                .reserve-label {
+                    max-width: calc(50% - 20px);
+                    font-family: 'Poppins-SemiBold';
+                    color: #282823;
+                    font-size: 20px;
+                }
+    
+                .student-picture {
+                    margin-left: 70%;
+                    width: 175px;
+                    min-height: 175px;
+                    max-height: 175px;
+                    border-radius: 50%;
+                    border: 3px solid #E9BE5F;
+                    background-color: #fff;
+    
+                    .student-img {
+                        width: 175px;
+                        min-height: 175px;
+                        max-height: 175px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                    }
+                }
+                
+                .student-details {
+                    margin-top: -32%;
+                    max-width: calc(80% - 20px);
+                    display: flex;
+                    flex-direction: row;
+                    .label {
+                        width: calc(50% - 20px);
+                        .student-name-label, .student-idno-label, .purpose-label, .lab-label, .pc-label, .purpose-label, .date-label, .timein-label, .status-label {
+                            font-family:'Poppins-Medium'; 
+                            color:#282823; 
+                            font-size :15px;
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                        }
+                    }
+                    .real-details {
+                        width: calc(60% - 20px);
+                        .student-name, .student-idno, .purpose, .lab, .pc, .date, .timein, .status {
+                            font-family:'Poppins-Regular'; 
+                            color:#282823; 
+                            font-size :15px;
+                            margin-bottom: 5px;
+                            margin-top: 0;
+                        }
+                    }
+                }
+                
+                .action-btns {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 5px;
+                    margin-bottom: 10px;
+                    button {
+                        width: 250px;
+                        height: 40px;
+                        border-radius: 5px;
+                        border: none;
+                        font-family: 'Poppins-Medium';
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    .approve-btn {
+                        background-color: #4CAF50; /* Green */
+                    }
+                    .decline-btn {
+                        background-color: #f44336; 
+                    }
+                }
+            }
+            .request-item:last-child {
+                margin-bottom: 2%;
+            }
+        }
+    }
+}

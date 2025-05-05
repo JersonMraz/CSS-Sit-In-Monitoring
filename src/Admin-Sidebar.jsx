@@ -27,6 +27,16 @@ function Sidebar() {
                         <i className='fa-solid fa-bullhorn'></i> Announcement
                     </a>
                 </li>
+                <li className={isActive("/Reservation-Request")}>
+                    <a className={isActive("/Reservation-Request")} onClick={() => navigate("/Reservation-Request")}>
+                        <i class="fa-solid fa-code-pull-request"></i> Reservation Request
+                    </a>
+                </li>
+                <li className={isActive("/CompLab-Management")}>
+                    <a className={isActive("/CompLab-Management")} onClick={() => navigate("/CompLab-Management")}>
+                        <i className="fa-solid fa-scroll"></i> Computer Management
+                    </a>
+                </li>
                 <li className={isActive("/Current-Sit-In")}>
                     <a className={isActive("/Current-Sit-In")} onClick={() => navigate("/Current-Sit-In")}>
                         <i className="fa-solid fa-code"></i> Current Sit-In
