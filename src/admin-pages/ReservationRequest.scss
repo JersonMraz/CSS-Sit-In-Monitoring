@@ -113,7 +113,7 @@
                     display: flex;
                     flex-direction: row;
                     .label {
-                        width: calc(50% - 20px);
+                        width: calc(45% - 20px);
                         .student-name-label, .student-idno-label, .purpose-label, .lab-label, .pc-label, .purpose-label, .date-label, .timein-label, .status-label {
                             font-family:'Poppins-Medium'; 
                             color:#282823; 
@@ -123,13 +123,17 @@
                         }
                     }
                     .real-details {
-                        width: calc(60% - 20px);
+                        width: calc(70% - 80px);
                         .student-name, .student-idno, .purpose, .lab, .pc, .date, .timein, .status {
                             font-family:'Poppins-Regular'; 
                             color:#282823; 
                             font-size :15px;
                             margin-bottom: 5px;
                             margin-top: 0;
+
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                         }
                     }
                 }

@@ -7,14 +7,13 @@ function Navbar() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [notificationFilter, setNotificationFilter] = useState("all"); // "all" or "unread"
+    const [notificationVisible, setNotificationVisible] = useState(false);
+    const [notifications, setNotifications] = useState([]);
+    const [unreadCount, setUnreadCount] = useState(0);
     const dropdownRef = useRef(null);
     const notificationRef = useRef(null);
     const profileRef = useRef(null);
-    const [notificationFilter, setNotificationFilter] = useState("all"); // "all" or "unread"
-
-    const [notifications, setNotifications] = useState([]);
-    const [unreadCount, setUnreadCount] = useState(0);
-    const [notificationVisible, setNotificationVisible] = useState(false);
     
     useEffect(() => {
         const storedUser = localStorage.getItem("user");
@@ -26,9 +25,16 @@ function Navbar() {
     const defaultAvatar = "../Images/default.png";
     const [avatar, setAvatar] = useState(defaultAvatar);
 
+    const toggleNotification = () => {
+        setNotificationVisible((prev) => !prev);
+        if (notificationVisible) {
+            markNotificationsAsRead();
+        }
+    };
+
     const toggleDropdown = () => {
         setDropdownVisible(prev => !prev);
-    };
+    }; 
 
     const handleClickOutside = (e) => {
         if (
@@ -74,7 +80,6 @@ function Navbar() {
 
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
-        console.log("User idno: " + user.idno);
         if (user) {
             fetch(`http://localhost/Sit-In Monitor Backend/get_notifications.php?for_idno=${user.idno}`)
                 .then((response) => response.json())
@@ -105,13 +110,6 @@ function Navbar() {
         }).catch((error) => {
             console.error("Error marking notifications as read:", error);
         });
-    };
-
-    const toggleNotification = () => {
-        setNotificationVisible((prev) => !prev);
-        if (!notificationVisible) {
-            markNotificationsAsRead();
-        }
     };
 
     const handleLogout = () => {
@@ -189,28 +187,28 @@ function Navbar() {
                     onClick={toggleNotification} 
                     >
                         <i className='fa-solid fa-bell'></i>
-                        {unreadCount > 0 && <span className="badge">{unreadCount}</span>}
+                        {unreadCount > 0 && (<span className="badge">{unreadCount}</span>)}
                     </a>
                     {notificationVisible && (
                         <div ref={notificationRef} className="notif-dropdown">
+                            <div className="notif-header">
+                                <p className='notif-big'>Notifications</p>
+                            </div>
+                            <div className="filter">
+                                <button
+                                    className={`all-btn ${notificationFilter === "all" ? "active" : ""}`}
+                                    onClick={() => setNotificationFilter("all")}
+                                >
+                                    All
+                                </button>
+                                <button
+                                    className={`unread-btn ${notificationFilter === "unread" ? "active" : ""}`}
+                                    onClick={() => setNotificationFilter("unread")}
+                                >
+                                    Unread
+                                </button>
+                            </div>
                             <ul>
-                                <div className="notif-header">
-                                    <p className='notif-big'>Notifications</p>
-                                </div>
-                                <div className="filter">
-                                    <button
-                                        className={`all-btn ${notificationFilter === "all" ? "active" : ""}`}
-                                        onClick={() => setNotificationFilter("all")}
-                                    >
-                                        All
-                                    </button>
-                                    <button
-                                        className={`unread-btn ${notificationFilter === "unread" ? "active" : ""}`}
-                                        onClick={() => setNotificationFilter("unread")}
-                                    >
-                                        Unread
-                                    </button>
-                                </div>
                                 {notifications.length > 0 ? (
                                     notifications
                                         .filter((notif) => notificationFilter === "all" || notif.status === "unread")

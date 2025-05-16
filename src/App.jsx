@@ -24,6 +24,7 @@ import Resources from "./admin-pages/Resources.jsx";
 import ViewResources from "./admin-pages/ViewResources.jsx";
 import ReservationRequest from "./admin-pages/ReservationRequest.jsx";
 import CompLabManagement from "./admin-pages/CompLabManagement.jsx";
+import ReservationLogs from "./admin-pages/ReservationLogs.jsx";
 
 function App() {
   return(
@@ -53,6 +54,7 @@ function App() {
         <Route path="/View-Resources" element={<ViewResources />}/>
         <Route path="/Reservation-Request" element={<ReservationRequest />} />
         <Route path="/CompLab-Management" element={<CompLabManagement />} />
+        <Route path="/ReservationLogs" element={<ReservationLogs />}/>
       </Routes>
     </>
   );

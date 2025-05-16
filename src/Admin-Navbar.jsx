@@ -377,31 +377,31 @@ function Navbar() {
             {user ? (
                 <div className="container">
                     <a className="notification"
-                      onClick={toggleNotification}
+                    onClick={toggleNotification}
                     >
                         <i className='fa-solid fa-bell'></i>
                         {unreadCount > 0 && (<span className="badge">{unreadCount}</span>)}
                     </a>
                     {notificationVisible && (
                         <div ref={notificationRef} className="notif-dropdown">
+                            <div className="notif-header">
+                                <p className='notif-big'>Notifications</p>
+                            </div>
+                            <div className="filter">
+                                <button
+                                    className={`all-btn ${notificationFilter === "all" ? "active" : ""}`}
+                                    onClick={() => setNotificationFilter("all")}
+                                >
+                                    All
+                                </button>
+                                <button
+                                    className={`unread-btn ${notificationFilter === "unread" ? "active" : ""}`}
+                                    onClick={() => setNotificationFilter("unread")}
+                                >
+                                    Unread
+                                </button>
+                            </div>
                             <ul>
-                                <div className="notif-header">
-                                    <p className='notif-big'>Notifications</p>
-                                </div>
-                                <div className="filter">
-                                    <button
-                                        className={`all-btn ${notificationFilter === "all" ? "active" : ""}`}
-                                        onClick={() => setNotificationFilter("all")}
-                                    >
-                                        All
-                                    </button>
-                                    <button
-                                        className={`unread-btn ${notificationFilter === "unread" ? "active" : ""}`}
-                                        onClick={() => setNotificationFilter("unread")}
-                                    >
-                                        Unread
-                                    </button>
-                                </div>
                                 {notifications.length > 0 ? (
                                     notifications
                                         .filter((notif) => notificationFilter === "all" || notif.status === "unread")

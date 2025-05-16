@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../Admin-Sidebar.jsx";
 import Navbar from "../Admin-Navbar.jsx";
+import Swal from "sweetalert2";
 import "./ReservationRequest.scss";
 
 function ReservationRequest() {
@@ -49,36 +50,45 @@ function ReservationRequest() {
             lab: lab,
             pc_num: pc_num,
             time: time,
-        };
-    
-        console.log("Payload being sent:", payload);
-        
-        fetch("http://localhost/Sit-In Monitor Backend/update_reservation_status.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload),
+        };  
+        Swal.fire({
+            icon: "question",
+            title: `${payload.status.slice(0, -1)} this request?`,
+            text: `Are you sure to ${payload.status.toLowerCase().slice(0, -1)} this request?`,
+            showCancelButton: true,
+            confirmButtonText: 'Yes',
+            cancelButtonText: 'No'
+        }).then((result) => {
+            if(result.isConfirmed) {
+                fetch("http://localhost/Sit-In Monitor Backend/update_reservation_status.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(payload),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.status === "success") {
+                        Swal.fire({
+                            title: `Request ${payload.status.toLowerCase()}`,
+                            text: 'This reservation request successfully reviewed.',
+                            timer: 1500,
+                            timerProgressBar: true
+                        });
+                        setRequests((prevRequests) =>
+                            prevRequests.filter((request) => request.reservation_id !== reservation_id)
+                        );
+                    } else {
+                        alert(data.message || "Failed to update reservation status");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error updating reservation status:", error);
+                    alert("An error occurred while updating the reservation status");
+                });
+            }
         })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.status === "success") {
-                    alert("Success but: " + data.message);
-                    setRequests((prevRequests) =>
-                        prevRequests.map((request) =>
-                            request.reservation_id === reservation_id
-                                ? { ...request, status: status }
-                                : request
-                        )
-                    );
-                } else {
-                    alert(data.message || "Failed to update reservation status");
-                }
-            })
-            .catch((error) => {
-                console.error("Error updating reservation status:", error);
-                alert("An error occurred while updating the reservation status");
-            });
     };
 
     return (
